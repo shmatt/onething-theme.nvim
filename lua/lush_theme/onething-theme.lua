@@ -44,6 +44,33 @@
 
 local lush = require('lush')
 local hsl = lush.hsl
+local onething_accent = hsl("#B87333")
+local onething_error = hsl("#FF7B00")
+local onething_warning = hsl("#FFC086")
+local onething_white = hsl("#FFFFFF")
+local onething_black = hsl("#000000")
+local onething_gray = hsl("#7a7a7a")
+local onething_border = hsl("#444444")
+
+local onething_gray_1 = hsl("#1e1e1e") 
+local onething_gray_2 = hsl("#2d2d2d")
+local onething_gray_3 = hsl("#3c3c3c")
+
+local onething_gray_10 = hsl("#aeaeae")
+local onething_gray_15 = hsl("#ececec")
+
+local onething_accent_group = { bg = onething_black, fg = onething_accent }
+local onething_error_group = { bg = onething_black, fg = onething_error }
+local onething_normal_group = { bg = onething_black, fg = onething_white }
+local onething_shade_group = { bg = onething_black, fg = onething_gray }
+local onething_border_group = { bg = onething_black, fg = onething_border }
+
+local onething_accent_invert = { bg = onething_accent, fg = onething_black }
+local onething_error_invert = { bg = onething_error, fg = onething_black }
+local onething_normal_invert = { bg = onething_white, fg = onething_black }
+local onething_shade_invert = { bg = onething_gray, fg = onething_black }
+local onething_border_invert = { bg = onething_border, fg = onething_black }
+
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
@@ -61,58 +88,58 @@ local theme = lush(function(injected_functions)
     --
     -- See :h highlight-groups
     --
-    -- ColorColumn    { }, -- Columns set with 'colorcolumn'
-    -- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
-    -- Cursor         { }, -- Character under the cursor
+    ColorColumn    { bg = onething_gray_2 }, -- Columns set with 'colorcolumn'
+    --Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
+    Cursor         { bg = hsl("#aeaeae"), fg = onething_black }, -- Character under the cursor
     -- CurSearch      { }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
-    -- lCursor        { }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
+    lCursor        { Cursor }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     -- CursorIM       { }, -- Like Cursor, but used when in IME mode |CursorIM|
     -- CursorColumn   { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    -- CursorLine     { }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
-    -- Directory      { }, -- Directory names (and other special names in listings)
-    -- DiffAdd        { }, -- Diff mode: Added line |diff.txt|
-    -- DiffChange     { }, -- Diff mode: Changed line |diff.txt|
-    -- DiffDelete     { }, -- Diff mode: Deleted line |diff.txt|
-    -- DiffText       { }, -- Diff mode: Changed text within a changed line |diff.txt|
-    -- EndOfBuffer    { }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
+    CursorLine     { bg = onething_gray_1 }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+    Directory      { bg = onething_black, fg = onething_accent }, -- Directory names (and other special names in listings)
+    DiffAdd        { bg = onething_warning.mix(onething_black, 75), fg = onething_warning }, -- Diff mode: Added line |diff.txt|
+    DiffChange     { bg = onething_gray, fg = onething_gray_15 }, -- Diff mode: Changed line |diff.txt|
+    DiffDelete     { bg = onething_error.mix(onething_black, 50), fg = onething_error }, -- Diff mode: Deleted line |diff.txt|
+    DiffText       { bg = onething_gray, fg = onething_white }, -- Diff mode: Changed text within a changed line |diff.txt|
+    EndOfBuffer    { bg = onething_black, fg = onething_gray_2 }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     -- TermCursor     { }, -- Cursor in a focused terminal
     -- TermCursorNC   { }, -- Cursor in an unfocused terminal
-    -- ErrorMsg       { }, -- Error messages on the command line
-    -- VertSplit      { }, -- Column separating vertically split windows
-    -- Folded         { }, -- Line used for closed folds
-    -- FoldColumn     { }, -- 'foldcolumn'
-    -- SignColumn     { }, -- Column where |signs| are displayed
-    -- IncSearch      { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-    -- Substitute     { }, -- |:substitute| replacement text highlighting
-    -- LineNr         { }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    ErrorMsg       { bg = onething_error, fg = onething_white }, -- Error messages on the command line
+    VertSplit      { bg = onething_black, fg = onething_border }, -- Column separating vertically split windows
+    Substitute     { bg = onething_gray_3, fg = onething_white }, -- |:substitute| replacement text highlighting
+    LineNr         { bg = onething_gray_2, fg = onething_white }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     -- LineNrAbove    { }, -- Line number for when the 'relativenumber' option is set, above the cursor line
     -- LineNrBelow    { }, -- Line number for when the 'relativenumber' option is set, below the cursor line
-    -- CursorLineNr   { }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    -- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
-    -- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
-    -- MatchParen     { }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    CursorLineNr   { fg = onething_gray_15 }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    Folded         { bg = onething_gray_2, fg = onething_accent }, -- Line used for closed folds
+    FoldColumn     { Folded }, -- 'foldcolumn'
+    SignColumn     { LineNr }, -- Column where |signs| are displayed
+    IncSearch      { bg = onething_gray, fg = onething_white }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    CursorLineFold { FoldColumn }, -- Like FoldColumn when 'cursorline' is set for the cursor line
+    CursorLineSign { CursorLineNr }, -- Like SignColumn when 'cursorline' is set for the cursor line
+    MatchParen     { bg = onething_black, fg = hsl("#cd8a4c"), gui = "bold" }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     -- ModeMsg        { }, -- 'showmode' message (e.g., "-- INSERT -- ")
-    -- MsgArea        { }, -- Area for messages and cmdline
+    MsgArea        { bg = onething_black, fg = onething_white }, -- Area for messages and cmdline
     -- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
-    -- MoreMsg        { }, -- |more-prompt|
-    -- NonText        { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    -- Normal         { }, -- Normal text
-    -- NormalFloat    { }, -- Normal text in floating windows.
-    -- FloatBorder    { }, -- Border of floating windows.
-    -- FloatTitle     { }, -- Title of floating windows.
+    MoreMsg        { bg = onething_black, fg = onething_accent }, -- |more-prompt|
+    NonText        { bg = onething_black, fg = onething_gray }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    Normal         { bg = onething_black, fg = onething_white }, -- Normal text
+    NormalFloat    { link = Normal }, -- Normal text in floating windows.
+    FloatBorder    { bg = onething_black, fg = onething_border }, -- Border of floating windows.
+    FloatTitle     { bg = onething_black, fg = onething_accent, gui = "bold" }, -- Title of floating windows.
     -- NormalNC       { }, -- normal text in non-current windows
-    -- Pmenu          { }, -- Popup menu: Normal item.
-    -- PmenuSel       { }, -- Popup menu: Selected item.
+    Pmenu          { bg = onething_gray_2, fg = onething_white }, -- Popup menu: Normal item.
+    PmenuSel       { Pmenu, fg = onething_accent }, -- Popup menu: Selected item.
     -- PmenuKind      { }, -- Popup menu: Normal item "kind"
     -- PmenuKindSel   { }, -- Popup menu: Selected item "kind"
     -- PmenuExtra     { }, -- Popup menu: Normal item "extra text"
     -- PmenuExtraSel  { }, -- Popup menu: Selected item "extra text"
     -- PmenuSbar      { }, -- Popup menu: Scrollbar.
     -- PmenuThumb     { }, -- Popup menu: Thumb of the scrollbar.
-    -- Question       { }, -- |hit-enter| prompt and yes/no questions
-    -- QuickFixLine   { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    -- Search         { }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
-    -- SpecialKey     { }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
+    Question       { bg = onething_black, fg = onething_accent }, -- |hit-enter| prompt and yes/no questions
+    QuickFixLine   { bg = onething_accent, fg = onething_black }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+    Search         { bg = onething_gray, fg = onething_white }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
+    SpecialKey     { bg = onething_black, fg = onething_gray}, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
     -- SpellBad       { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     -- SpellCap       { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal     { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
@@ -122,13 +149,13 @@ local theme = lush(function(injected_functions)
     -- TabLine        { }, -- Tab pages line, not active tab page label
     -- TabLineFill    { }, -- Tab pages line, where there are no labels
     -- TabLineSel     { }, -- Tab pages line, active tab page label
-    -- Title          { }, -- Titles for output from ":set all", ":autocmd" etc.
-    -- Visual         { }, -- Visual mode selection
+    Title          { bg = onething_black, fg = onething_accent, gui = "bold" }, -- Titles for output from ":set all", ":autocmd" etc.
+    Visual         { bg = onething_gray, fg = onething_black }, -- Visual mode selection
     -- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
-    -- WarningMsg     { }, -- Warning messages
+    WarningMsg     { bg = onething_black, fg = onething_error }, -- Warning messages
     -- Whitespace     { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     -- Winseparator   { }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
-    -- WildMenu       { }, -- Current match in 'wildmenu' completion
+    WildMenu       { bg = onething_accent, fg = onething_black }, -- Current match in 'wildmenu' completion
     -- WinBar         { }, -- Window bar of current window
     -- WinBarNC       { }, -- Window bar of not-current windows
 
@@ -140,48 +167,48 @@ local theme = lush(function(injected_functions)
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    -- Comment        { }, -- Any comment
+    Comment        { bg = onething_black, fg = onething_gray }, -- Any comment
 
-    -- Constant       { }, -- (*) Any constant
+    Constant       { bg = onething_black, fg = onething_white }, -- (*) Any constant
     -- String         { }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     -- Number         { }, --   A number constant: 234, 0xff
     -- Boolean        { }, --   A boolean constant: TRUE, false
     -- Float          { }, --   A floating point constant: 2.3e10
 
-    -- Identifier     { }, -- (*) Any variable name
-    -- Function       { }, --   Function name (also: methods for classes)
+    Identifier     { bg = onething_black, fg = onething_white, gui = "bold" }, -- (*) Any variable name
+    Function       { bg = onething_black, fg = onething_white, gui = "" }, --   Function name (also: methods for classes)
 
-    -- Statement      { }, -- (*) Any statement
+    Statement      { bg = onething_black, fg = onething_accent }, -- (*) Any statement
     -- Conditional    { }, --   if, then, else, endif, switch, etc.
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --   case, default, etc.
-    -- Operator       { }, --   "sizeof", "+", "*", etc.
+    Operator       { bg = onething_black, fg = onething_accent, gui = "bold" }, --   "sizeof", "+", "*", etc.
     -- Keyword        { }, --   any other keyword
     -- Exception      { }, --   try, catch, throw
 
-    -- PreProc        { }, -- (*) Generic Preprocessor
+    PreProc        { bg = onething_black, fg = onething_gray }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
     -- Define         { }, --   Preprocessor #define
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    -- Type           { }, -- (*) int, long, char, etc.
+    Type           { bg = onething_black, fg = onething_white }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
 
-    -- Special        { }, -- (*) Any special symbol
+    Special        { bg = onething_black, fg = onething_accent }, -- (*) Any special symbol
     -- SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
-    -- Delimiter      { }, --   Character that needs attention
+    Delimiter      { bg = onething_black, fg = hsl("#cd8a4c") }, --   Character that needs attention
     -- SpecialComment { }, --   Special things inside a comment (e.g. '\n')
     -- Debug          { }, --   Debugging statements
 
-    -- Underlined     { gui = "underline" }, -- Text that stands out, HTML links
+    Underlined     { bg = onething_black, fg = onething_accent, gui = "underline" }, -- Text that stands out, HTML links
     -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
-    -- Error          { }, -- Any erroneous construct
-    -- Todo           { }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Error          { bg = onething_error, fg = onething_black }, -- Any erroneous construct
+    Todo           { bg = onething_accent, fg = onething_black }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     -- These groups are for the native LSP client and diagnostic system. Some
     -- other LSP clients may use these groups, or use their own. Consult your
@@ -198,11 +225,11 @@ local theme = lush(function(injected_functions)
 
     -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
-    -- DiagnosticError            { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticWarn             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticInfo             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticHint             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticOk               { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticError            { bg = onething_black, fg = onething_error } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticWarn             { bg = onething_black, fg = onething_warning } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo             { bg = onething_black, fg = onething_gray_15 } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint             { bg = onething_black, fg = onething_gray } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticOk               { bg = onething_black, fg = onething_white } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
     -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
