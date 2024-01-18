@@ -113,7 +113,7 @@ local theme = lush(function(injected_functions)
     CursorLineNr   { fg = onething_gray_15 }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     Folded         { bg = onething_gray_2, fg = onething_accent }, -- Line used for closed folds
     FoldColumn     { Folded }, -- 'foldcolumn'
-    SignColumn     { LineNr }, -- Column where |signs| are displayed
+    SignColumn     { bg = onething_black, fg = onething_white }, -- Column where |signs| are displayed
     IncSearch      { bg = onething_gray, fg = onething_white }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     CursorLineFold { FoldColumn }, -- Like FoldColumn when 'cursorline' is set for the cursor line
     CursorLineSign { CursorLineNr }, -- Like SignColumn when 'cursorline' is set for the cursor line
