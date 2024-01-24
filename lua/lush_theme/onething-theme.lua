@@ -89,13 +89,13 @@ local theme = lush(function(injected_functions)
     -- See :h highlight-groups
     --
     ColorColumn    { bg = onething_gray_2 }, -- Columns set with 'colorcolumn'
-    --Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
+    Conceal        { bg = onething_black, fg = onething_accent }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor         { bg = hsl("#aeaeae"), fg = onething_black }, -- Character under the cursor
     -- CurSearch      { }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
     lCursor        { Cursor }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     -- CursorIM       { }, -- Like Cursor, but used when in IME mode |CursorIM|
     -- CursorColumn   { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    CursorLine     { bg = onething_gray_1 }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorLine     { bg = onething_gray_2 }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory      { bg = onething_black, fg = onething_accent }, -- Directory names (and other special names in listings)
     DiffAdd        { bg = onething_warning.mix(onething_black, 75), fg = onething_warning }, -- Diff mode: Added line |diff.txt|
     DiffChange     { bg = onething_gray, fg = onething_gray_15 }, -- Diff mode: Changed line |diff.txt|
