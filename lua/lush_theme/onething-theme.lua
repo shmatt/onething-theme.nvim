@@ -160,8 +160,10 @@ local theme = lush(function(injected_functions)
     -- WinBarNC       { }, -- Window bar of not-current windows
 
     -- Obsidian specific highlights
+    HasjTag { bg = onething_accent, fg = onething_white, gui = "bold" },
     ObsidianTag { bg = onething_accent, fg = onething_white, gui = "bold" },
     ObsidianHighlightText { bg = onething_gray_3, fg = onething_white },
+    HighlightText { bg = onething_gray_3, fg = onething_white },
     ObsidianRefText { gui = "underline" },
     -- Common vim syntax groups used for all kinds of code and markup.
     -- Commented-out groups should chain up to their preferred (*) group
