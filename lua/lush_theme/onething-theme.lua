@@ -328,6 +328,19 @@ local theme = lush(function(injected_functions)
     -- sym"@emphasis_delimiter"{ bg = onething_black, fg = onething_grey, gui = "bold" },
     sym"@link"              { bg = onething_black, fg = onething_accent, gui = "underline" },
     sym"@markup.heading"    { bg = onething_black, fg = onething_accent, gui = "bold" },
+    sym"@markup.heading.1.marker" { bg = onething_black, fg = onething_gray, gui = "regular" },
+    sym"@markup.heading.2.marker" { bg = onething_black, fg = onething_gray, gui = "regular" },
+    sym"@markup.heading.3.marker" { bg = onething_black, fg = onething_gray, gui = "regular" },
+    sym"@markup.heading.4.marker" { bg = onething_black, fg = onething_gray, gui = "regular" },
+    sym"@markup.heading.5.marker" { bg = onething_black, fg = onething_gray, gui = "regular" },
+    sym"@markup.heading.6.marker" { bg = onething_black, fg = onething_gray, gui = "regular" },
+    sym"@markup.italic"     { bg = onething_black, fg = onething_white, gui = "italic" },
+    sym"@markup.emphasis"   { bg = onething_black, fg = onething_white, gui = "italic" },
+    sym"@markup.bold"       { bg = onething_black, fg = onething_white, gui = "bold" },
+    sym"@markup.strong"     { bg = onething_black, fg = onething_white, gui = "bold" },
+    sym"@markup.underline"  { bg = onething_black, fg = onething_accent, gui = "underline" },
+    sym"@markup.strikethrough" { bg = onething_black, fg = onething_accent, gui = "strikethrough" },
+
   }
 end)
 
