@@ -160,7 +160,7 @@ local theme = lush(function(injected_functions)
     -- WinBarNC       { }, -- Window bar of not-current windows
 
     -- Obsidian specific highlights
-    HasjTag { bg = onething_accent, fg = onething_white, gui = "bold" },
+    HashTag { bg = onething_accent, fg = onething_white, gui = "bold" },
     ObsidianTag { bg = onething_accent, fg = onething_white, gui = "bold" },
     ObsidianHighlightText { bg = onething_gray_3, fg = onething_white },
     HighlightText { bg = onething_gray_3, fg = onething_white },
@@ -326,7 +326,9 @@ local theme = lush(function(injected_functions)
     -- sym"@heading_content"   { bg = onething_black, fg = onething_accent, gui = "bold" },
     -- sym"@strong_emphasis"   { bg = onething_black, fg = onething_white, gui = "bold" },
     -- sym"@emphasis_delimiter"{ bg = onething_black, fg = onething_grey, gui = "bold" },
-}
+    sym"@link"              { bg = onething_black, fg = onething_accent, gui = "underline" },
+    sym"@markup.heading"    { bg = onething_black, fg = onething_accent, gui = "bold" },
+  }
 end)
 
 -- Return our parsed theme for extension or use elsewhere.
