@@ -321,11 +321,11 @@ local theme = lush(function(injected_functions)
     -- sym"@tag"               { }, -- Tag
     
     -- Some obsidian / markdown specific highlights
-    sym"@atx_heading"       { bg = onething_black, fg = onething_grey },
-    sym"@setext_heading"       { bg = onething_black, fg = onething_grey },
-    sym"@heading_content"   { bg = onething_black, fg = onething_accent, gui = "bold" },
-    sym"@strong_emphasis"   { bg = onething_black, fg = onething_white, gui = "bold" },
-    sym"@emphasis_delimiter"{ bg = onething_black, fg = onething_grey, gui = "bold" },
+    -- sym"@atx_heading"       { bg = onething_black, fg = onething_grey },
+    -- sym"@setext_heading"       { bg = onething_black, fg = onething_grey },
+    -- sym"@heading_content"   { bg = onething_black, fg = onething_accent, gui = "bold" },
+    -- sym"@strong_emphasis"   { bg = onething_black, fg = onething_white, gui = "bold" },
+    -- sym"@emphasis_delimiter"{ bg = onething_black, fg = onething_grey, gui = "bold" },
 }
 end)
 
