@@ -96,7 +96,7 @@ local theme = lush(function(injected_functions)
     -- CursorIM       { }, -- Like Cursor, but used when in IME mode |CursorIM|
     -- CursorColumn   { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine     { bg = onething_gray_2 }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
-    Directory      { bg = onething_black, fg = onething_accent }, -- Directory names (and other special names in listings)
+    Directory      { fg = onething_accent }, -- Directory names (and other special names in listings)
     DiffAdd        { bg = onething_warning.mix(onething_black, 75), fg = onething_warning }, -- Diff mode: Added line |diff.txt|
     DiffChange     { bg = onething_gray, fg = onething_gray_15 }, -- Diff mode: Changed line |diff.txt|
     DiffDelete     { bg = onething_error.mix(onething_black, 50), fg = onething_error }, -- Diff mode: Deleted line |diff.txt|
@@ -165,6 +165,46 @@ local theme = lush(function(injected_functions)
     ObsidianHighlightText { bg = onething_gray_3, fg = onething_white },
     HighlightText { bg = onething_gray_3, fg = onething_white },
     ObsidianRefText { gui = "underline" },
+
+    -- Notify colours
+    NotifyERRORBorder { bg = onething_black, fg = onething_error },
+    NotifyWARNBorder { bg = onething_black, fg = onething_warning },
+    NotifyINFOBorder { bg = onething_black, fg = onething_gray_15 },
+    NotifyDEBUGBorder { bg = onething_black, fg = onething_gray_10 },
+    NotifyTRACEBorder { bg = onething_black, fg = onething_gray },
+    NotifyERRORIcon { bg = onething_black, fg = onething_error },
+    NotifyWARNIcon { bg = onething_black, fg = onething_warning },
+    NotifyINFOIcon { bg = onething_black, fg = onething_gray_15 },
+    NotifyDEBUGIcon { bg = onething_black, fg = onething_gray_10 },
+    NotifyTRACEIcon { bg = onething_black, fg = onething_gray },
+    NotifyERRORTitle { bg = onething_black, fg = onething_error, gui = "bold" },
+    NotifyWARNTitle { bg = onething_black, fg = onething_warning, gui = "bold" },
+    NotifyINFOTitle { bg = onething_black, fg = onething_gray_15, gui = "bold" },
+    NotifyDEBUGTitle { bg = onething_black, fg = onething_gray_10, gui = "bold" },
+    NotifyTRACETitle { bg = onething_black, fg = onething_gray, gui = "bold" },
+
+    -- highlight NotifyERRORBorder guifg=#8A1F1F
+    -- highlight NotifyWARNBorder guifg=#79491D
+    -- highlight NotifyINFOBorder guifg=#4F6752
+    -- highlight NotifyDEBUGBorder guifg=#8B8B8B
+    -- highlight NotifyTRACEBorder guifg=#4F3552
+    -- highlight NotifyERRORIcon guifg=#F70067
+    -- highlight NotifyWARNIcon guifg=#F79000
+    -- highlight NotifyINFOIcon guifg=#A9FF68
+    -- highlight NotifyDEBUGIcon guifg=#8B8B8B
+    -- highlight NotifyTRACEIcon guifg=#D484FF
+    -- highlight NotifyERRORTitle  guifg=#F70067
+    -- highlight NotifyWARNTitle guifg=#F79000
+    -- highlight NotifyINFOTitle guifg=#A9FF68
+    -- highlight NotifyDEBUGTitle  guifg=#8B8B8B
+    -- highlight NotifyTRACETitle  guifg=#D484FF
+    -- highlight link NotifyERRORBody Normal
+    -- highlight link NotifyWARNBody Normal
+    -- highlight link NotifyINFOBody Normal
+    -- highlight link NotifyDEBUGBody Normal
+    -- highlight link NotifyTRACEBody Normal
+    
+    -- These groups are for the native LSP client. Some other LSP clients may use 
     -- Common vim syntax groups used for all kinds of code and markup.
     -- Commented-out groups should chain up to their preferred (*) group
     -- by default.
