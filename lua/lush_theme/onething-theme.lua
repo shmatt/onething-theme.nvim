@@ -89,7 +89,7 @@ local theme = lush(function(injected_functions)
     -- See :h highlight-groups
     --
     ColorColumn    { bg = onething_gray_2 }, -- Columns set with 'colorcolumn'
-    Conceal        { bg = onething_black, fg = onething_accent }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
+    Conceal        { fg = onething_accent }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor         { bg = hsl("#aeaeae"), fg = onething_black }, -- Character under the cursor
     -- CurSearch      { }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
     lCursor        { Cursor }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
@@ -101,11 +101,11 @@ local theme = lush(function(injected_functions)
     DiffChange     { bg = onething_gray, fg = onething_gray_15 }, -- Diff mode: Changed line |diff.txt|
     DiffDelete     { bg = onething_error.mix(onething_black, 50), fg = onething_error }, -- Diff mode: Deleted line |diff.txt|
     DiffText       { bg = onething_gray, fg = onething_white }, -- Diff mode: Changed text within a changed line |diff.txt|
-    EndOfBuffer    { bg = onething_black, fg = onething_gray_2 }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
+    EndOfBuffer    { fg = onething_gray_2 }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     -- TermCursor     { }, -- Cursor in a focused terminal
     -- TermCursorNC   { }, -- Cursor in an unfocused terminal
     ErrorMsg       { bg = onething_error, fg = onething_white }, -- Error messages on the command line
-    VertSplit      { bg = onething_black, fg = onething_border }, -- Column separating vertically split windows
+    VertSplit      { fg = onething_border }, -- Column separating vertically split windows
     Substitute     { bg = onething_gray_3, fg = onething_white }, -- |:substitute| replacement text highlighting
     LineNr         { bg = onething_gray_2, fg = onething_white }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     -- LineNrAbove    { }, -- Line number for when the 'relativenumber' option is set, above the cursor line
@@ -117,15 +117,15 @@ local theme = lush(function(injected_functions)
     IncSearch      { bg = onething_gray, fg = onething_white }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     CursorLineFold { FoldColumn }, -- Like FoldColumn when 'cursorline' is set for the cursor line
     CursorLineSign { CursorLineNr }, -- Like SignColumn when 'cursorline' is set for the cursor line
-    MatchParen     { bg = onething_black, fg = hsl("#cd8a4c"), gui = "bold" }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen     { fg = hsl("#cd8a4c"), gui = "bold" }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     -- ModeMsg        { }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea        { bg = onething_black, fg = onething_white }, -- Area for messages and cmdline
     -- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg        { bg = onething_black, fg = onething_accent }, -- |more-prompt|
-    NonText        { bg = onething_black, fg = onething_gray }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    Normal         { bg = onething_black, fg = onething_white }, -- Normal text
+    NonText        { fg = onething_gray }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    Normal         { fg = onething_white }, -- Normal text
     NormalFloat    { link = Normal }, -- Normal text in floating windows.
-    FloatBorder    { bg = onething_black, fg = onething_border }, -- Border of floating windows.
+    FloatBorder    { fg = onething_border }, -- Border of floating windows.
     FloatTitle     { bg = onething_black, fg = onething_accent, gui = "bold" }, -- Title of floating windows.
     -- NormalNC       { }, -- normal text in non-current windows
     Pmenu          { bg = onething_gray_2, fg = onething_white }, -- Popup menu: Normal item.
@@ -149,7 +149,7 @@ local theme = lush(function(injected_functions)
     -- TabLine        { }, -- Tab pages line, not active tab page label
     -- TabLineFill    { }, -- Tab pages line, where there are no labels
     -- TabLineSel     { }, -- Tab pages line, active tab page label
-    Title          { bg = onething_black, fg = onething_accent, gui = "bold" }, -- Titles for output from ":set all", ":autocmd" etc.
+    Title          { fg = onething_accent, gui = "bold" }, -- Titles for output from ":set all", ":autocmd" etc.
     Visual         { bg = onething_gray, fg = onething_black }, -- Visual mode selection
     -- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg     { bg = onething_black, fg = onething_error }, -- Warning messages
@@ -173,45 +173,45 @@ local theme = lush(function(injected_functions)
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment        { bg = onething_black, fg = onething_gray }, -- Any comment
+    Comment        { fg = onething_gray }, -- Any comment
 
-    Constant       { bg = onething_black, fg = onething_white }, -- (*) Any constant
+    Constant       { fg = onething_white }, -- (*) Any constant
     -- String         { }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     -- Number         { }, --   A number constant: 234, 0xff
     -- Boolean        { }, --   A boolean constant: TRUE, false
     -- Float          { }, --   A floating point constant: 2.3e10
 
-    Identifier     { bg = onething_black, fg = onething_white, gui = "bold" }, -- (*) Any variable name
-    Function       { bg = onething_black, fg = onething_white, gui = "" }, --   Function name (also: methods for classes)
+    Identifier     { fg = onething_white, gui = "bold" }, -- (*) Any variable name
+    Function       { fg = onething_white, gui = "" }, --   Function name (also: methods for classes)
 
-    Statement      { bg = onething_black, fg = onething_accent }, -- (*) Any statement
+    Statement      { fg = onething_accent }, -- (*) Any statement
     -- Conditional    { }, --   if, then, else, endif, switch, etc.
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --   case, default, etc.
-    Operator       { bg = onething_black, fg = onething_accent, gui = "bold" }, --   "sizeof", "+", "*", etc.
+    Operator       { fg = onething_accent, gui = "bold" }, --   "sizeof", "+", "*", etc.
     -- Keyword        { }, --   any other keyword
     -- Exception      { }, --   try, catch, throw
 
-    PreProc        { bg = onething_black, fg = onething_gray }, -- (*) Generic Preprocessor
+    PreProc        { fg = onething_gray }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
     -- Define         { }, --   Preprocessor #define
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { bg = onething_black, fg = onething_white }, -- (*) int, long, char, etc.
+    Type           { fg = onething_white }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
 
-    Special        { bg = onething_black, fg = onething_accent }, -- (*) Any special symbol
+    Special        { fg = onething_accent }, -- (*) Any special symbol
     -- SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
-    Delimiter      { bg = onething_black, fg = hsl("#cd8a4c") }, --   Character that needs attention
+    Delimiter      { fg = hsl("#cd8a4c") }, --   Character that needs attention
     -- SpecialComment { }, --   Special things inside a comment (e.g. '\n')
     -- Debug          { }, --   Debugging statements
 
-    Underlined     { bg = onething_black, fg = onething_accent, gui = "underline" }, -- Text that stands out, HTML links
+    Underlined     { fg = onething_accent, gui = "underline" }, -- Text that stands out, HTML links
     -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
     Error          { bg = onething_error, fg = onething_black }, -- Any erroneous construct
     Todo           { bg = onething_accent, fg = onething_black }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
@@ -231,11 +231,11 @@ local theme = lush(function(injected_functions)
 
     -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
-    DiagnosticError            { bg = onething_black, fg = onething_error } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticWarn             { bg = onething_black, fg = onething_warning } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticInfo             { bg = onething_black, fg = onething_gray_15 } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticHint             { bg = onething_black, fg = onething_gray } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticOk               { bg = onething_black, fg = onething_white } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticError            { fg = onething_error } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticWarn             { fg = onething_warning } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo             { fg = onething_gray_15 } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint             { fg = onething_gray } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticOk               { fg = onething_white } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
     -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
@@ -326,20 +326,20 @@ local theme = lush(function(injected_functions)
     -- sym"@heading_content"   { bg = onething_black, fg = onething_accent, gui = "bold" },
     -- sym"@strong_emphasis"   { bg = onething_black, fg = onething_white, gui = "bold" },
     -- sym"@emphasis_delimiter"{ bg = onething_black, fg = onething_grey, gui = "bold" },
-    sym"@link"              { bg = onething_black, fg = onething_accent, gui = "underline" },
-    sym"@markup.heading"    { bg = onething_black, fg = onething_accent, gui = "bold" },
-    sym"@markup.heading.1.marker" { bg = onething_black, fg = onething_gray, gui = "regular" },
-    sym"@markup.heading.2.marker" { bg = onething_black, fg = onething_gray, gui = "regular" },
-    sym"@markup.heading.3.marker" { bg = onething_black, fg = onething_gray, gui = "regular" },
-    sym"@markup.heading.4.marker" { bg = onething_black, fg = onething_gray, gui = "regular" },
-    sym"@markup.heading.5.marker" { bg = onething_black, fg = onething_gray, gui = "regular" },
-    sym"@markup.heading.6.marker" { bg = onething_black, fg = onething_gray, gui = "regular" },
-    sym"@markup.italic"     { bg = onething_black, fg = onething_white, gui = "italic" },
-    sym"@markup.emphasis"   { bg = onething_black, fg = onething_white, gui = "italic" },
-    sym"@markup.bold"       { bg = onething_black, fg = onething_white, gui = "bold" },
-    sym"@markup.strong"     { bg = onething_black, fg = onething_white, gui = "bold" },
-    sym"@markup.underline"  { bg = onething_black, fg = onething_accent, gui = "underline" },
-    sym"@markup.strikethrough" { bg = onething_black, fg = onething_accent, gui = "strikethrough" },
+    sym"@link"              { fg = onething_accent, gui = "underline" },
+    sym"@markup.heading"    { fg = onething_accent, gui = "bold" },
+    sym"@markup.heading.1.marker" { fg = onething_gray, gui = "regular" },
+    sym"@markup.heading.2.marker" { fg = onething_gray, gui = "regular" },
+    sym"@markup.heading.3.marker" { fg = onething_gray, gui = "regular" },
+    sym"@markup.heading.4.marker" { fg = onething_gray, gui = "regular" },
+    sym"@markup.heading.5.marker" { fg = onething_gray, gui = "regular" },
+    sym"@markup.heading.6.marker" { fg = onething_gray, gui = "regular" },
+    sym"@markup.italic"     { fg = onething_white, gui = "italic" },
+    sym"@markup.emphasis"   { fg = onething_white, gui = "italic" },
+    sym"@markup.bold"       { fg = onething_white, gui = "bold" },
+    sym"@markup.strong"     { fg = onething_white, gui = "bold" },
+    sym"@markup.underline"  { fg = onething_accent, gui = "underline" },
+    sym"@markup.strikethrough" { fg = onething_accent, gui = "strikethrough" },
 
   }
 end)
