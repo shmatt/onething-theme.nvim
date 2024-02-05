@@ -167,6 +167,7 @@ local theme = lush(function(injected_functions)
     ObsidianRefText { gui = "underline" },
 
     -- Notify colours
+    NotifyBackground { bg = onething_grey_1, fg = onething_white },
     NotifyERRORBorder { bg = onething_black, fg = onething_error },
     NotifyWARNBorder { bg = onething_black, fg = onething_warning },
     NotifyINFOBorder { bg = onething_black, fg = onething_gray_15 },
@@ -182,6 +183,7 @@ local theme = lush(function(injected_functions)
     NotifyINFOTitle { bg = onething_black, fg = onething_gray_15, gui = "bold" },
     NotifyDEBUGTitle { bg = onething_black, fg = onething_gray_10, gui = "bold" },
     NotifyTRACETitle { bg = onething_black, fg = onething_gray, gui = "bold" },
+
 
     -- highlight NotifyERRORBorder guifg=#8A1F1F
     -- highlight NotifyWARNBorder guifg=#79491D
