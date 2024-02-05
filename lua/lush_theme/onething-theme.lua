@@ -167,7 +167,7 @@ local theme = lush(function(injected_functions)
     ObsidianRefText { gui = "underline" },
 
     -- Notify colours
-    NotifyBackground { bg = onething_grey_1, fg = onething_white },
+    NotifyBackground { bg = onething_gray_1, fg = onething_white },
     NotifyERRORBorder { bg = onething_black, fg = onething_error },
     NotifyWARNBorder { bg = onething_black, fg = onething_warning },
     NotifyINFOBorder { bg = onething_black, fg = onething_gray_15 },
