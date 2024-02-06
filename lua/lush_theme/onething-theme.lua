@@ -183,6 +183,38 @@ local theme = lush(function(injected_functions)
     NotifyINFOTitle { bg = onething_black, fg = onething_gray_15, gui = "bold" },
     NotifyDEBUGTitle { bg = onething_black, fg = onething_gray_10, gui = "bold" },
 
+    lualine {
+      normal = {
+        a = {bg = onething_accent.hex, fg = onething_white.hex, gui = "bold"},
+        b = {bg = onething_gray_15.hex, fg = onething_white.hex},
+        c = {bg = onething_gray_15.hex, fg = onething_gray.hex}
+      }
+      -- insert = {
+      --   a = {bg = colors.blue, fg = colors.black, gui = 'bold'},
+      --   b = {bg = colors.lightgray, fg = colors.white},
+      --   c = {bg = colors.lightgray, fg = colors.white}
+      -- },
+      -- visual = {
+      --   a = {bg = colors.yellow, fg = colors.black, gui = 'bold'},
+      --   b = {bg = colors.lightgray, fg = colors.white},
+      --   c = {bg = colors.inactivegray, fg = colors.black}
+      -- },
+      -- replace = {
+      --   a = {bg = colors.red, fg = colors.black, gui = 'bold'},
+      --   b = {bg = colors.lightgray, fg = colors.white},
+      --   c = {bg = colors.black, fg = colors.white}
+      -- },
+      -- command = {
+      --   a = {bg = colors.green, fg = colors.black, gui = 'bold'},
+      --   b = {bg = colors.lightgray, fg = colors.white},
+      --   c = {bg = colors.inactivegray, fg = colors.black}
+      -- },
+      -- inactive = {
+      --   a = {bg = colors.darkgray, fg = colors.gray, gui = 'bold'},
+      --   b = {bg = colors.darkgray, fg = colors.gray},
+      --   c = {bg = colors.darkgray, fg = colors.gray}
+      -- }
+    },
     -- Common vim syntax groups used for all kinds of code and markup.
     -- Commented-out groups should chain up to their preferred (*) group
     -- by default.
