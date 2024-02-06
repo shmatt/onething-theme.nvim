@@ -183,38 +183,7 @@ local theme = lush(function(injected_functions)
     NotifyINFOTitle { bg = onething_black, fg = onething_gray_15, gui = "bold" },
     NotifyDEBUGTitle { bg = onething_black, fg = onething_gray_10, gui = "bold" },
 
-    lualine {
-      normal = {
-        a = {bg = onething_accent.hex, fg = onething_white.hex, gui = "bold"},
-        b = {bg = onething_gray_15.hex, fg = onething_white.hex},
-        c = {bg = onething_gray_15.hex, fg = onething_gray.hex}
-      }
-      -- insert = {
-      --   a = {bg = colors.blue, fg = colors.black, gui = 'bold'},
-      --   b = {bg = colors.lightgray, fg = colors.white},
-      --   c = {bg = colors.lightgray, fg = colors.white}
-      -- },
-      -- visual = {
-      --   a = {bg = colors.yellow, fg = colors.black, gui = 'bold'},
-      --   b = {bg = colors.lightgray, fg = colors.white},
-      --   c = {bg = colors.inactivegray, fg = colors.black}
-      -- },
-      -- replace = {
-      --   a = {bg = colors.red, fg = colors.black, gui = 'bold'},
-      --   b = {bg = colors.lightgray, fg = colors.white},
-      --   c = {bg = colors.black, fg = colors.white}
-      -- },
-      -- command = {
-      --   a = {bg = colors.green, fg = colors.black, gui = 'bold'},
-      --   b = {bg = colors.lightgray, fg = colors.white},
-      --   c = {bg = colors.inactivegray, fg = colors.black}
-      -- },
-      -- inactive = {
-      --   a = {bg = colors.darkgray, fg = colors.gray, gui = 'bold'},
-      --   b = {bg = colors.darkgray, fg = colors.gray},
-      --   c = {bg = colors.darkgray, fg = colors.gray}
-      -- }
-    },
+    
     -- Common vim syntax groups used for all kinds of code and markup.
     -- Commented-out groups should chain up to their preferred (*) group
     -- by default.
@@ -394,51 +363,6 @@ local theme = lush(function(injected_functions)
   }
 end)
 
-theme.line = function()
-  local colors = {
-    darkgray = "#16161d",
-    gray = "#727169",
-    innerbg = nil,
-    outerbg = "#16161D",
-    normal = "#7e9cd8",
-    insert = "#98bb6c",
-    visual = "#ffa066",
-    replace = "#e46876",
-    command = "#e6c384",
-  }
-  return {
-    inactive = {
-      a = { fg = colors.gray, bg = colors.outerbg, gui = "bold" },
-      b = { fg = colors.gray, bg = colors.outerbg },
-      c = { fg = colors.gray, bg = colors.innerbg },
-    },
-    visual = {
-      a = { fg = colors.darkgray, bg = colors.visual, gui = "bold" },
-      b = { fg = colors.gray, bg = colors.outerbg },
-      c = { fg = colors.gray, bg = colors.innerbg },
-    },
-    replace = {
-      a = { fg = colors.darkgray, bg = colors.replace, gui = "bold" },
-      b = { fg = colors.gray, bg = colors.outerbg },
-      c = { fg = colors.gray, bg = colors.innerbg },
-    },
-    normal = {
-      a = { fg = colors.darkgray, bg = colors.normal, gui = "bold" },
-      b = { fg = colors.gray, bg = colors.outerbg },
-      c = { fg = colors.gray, bg = colors.innerbg },
-    },
-    insert = {
-      a = { fg = colors.darkgray, bg = colors.insert, gui = "bold" },
-      b = { fg = colors.gray, bg = colors.outerbg },
-      c = { fg = colors.gray, bg = colors.innerbg },
-    },
-    command = {
-      a = { fg = colors.darkgray, bg = colors.command, gui = "bold" },
-      b = { fg = colors.gray, bg = colors.outerbg },
-      c = { fg = colors.gray, bg = colors.innerbg },
-    },
-  }
-end
     
 -- Return our parsed theme for extension or use elsewhere.
 return theme
