@@ -44,6 +44,9 @@
 
 local lush = require('lush')
 local hsl = lush.hsl
+
+local colours = require('lush_theme.onething-colours')
+
 local onething_accent = hsl("#B87333")
 local onething_error = hsl("#FF7B00")
 local onething_warning = hsl("#FFC086")
