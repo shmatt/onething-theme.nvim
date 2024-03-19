@@ -63,7 +63,7 @@ local theme = lush(function(injected_functions)
     --
     -- See :h highlight-groups
     --
-    ColorColumn    { bg = colours.gray_2 }, -- Columns set with 'colorcolumn'
+    ColorColumn    { bg = colours.gray_1 }, -- Columns set with 'colorcolumn'
     Conceal        { bg = colours.black, fg = colours.accent }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor         { bg = hsl("#aeaeae"), fg = colours.black }, -- Character under the cursor
     -- CurSearch      { }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
@@ -82,7 +82,7 @@ local theme = lush(function(injected_functions)
     ErrorMsg       { bg = colours.error, fg = colours.white }, -- Error messages on the command line
     VertSplit      { bg = colours.black, fg = colours.border }, -- Column separating vertically split windows
     Substitute     { bg = colours.gray_3, fg = colours.white }, -- |:substitute| replacement text highlighting
-    LineNr         { bg = colours.gray_2, fg = colours.white }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNr         { bg = colours.black, fg = colours.gray_3 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     -- LineNrAbove    { }, -- Line number for when the 'relativenumber' option is set, above the cursor line
     -- LineNrBelow    { }, -- Line number for when the 'relativenumber' option is set, below the cursor line
     CursorLineNr   { fg = colours.gray_15 }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
