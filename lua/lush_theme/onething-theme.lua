@@ -97,7 +97,7 @@ local theme = lush(function(injected_functions)
     MsgArea        { bg = colours.black, fg = colours.white }, -- Area for messages and cmdline
     -- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg        { bg = colours.black, fg = colours.accent }, -- |more-prompt|
-    NonText        { bg = colours.black, fg = colours.gray }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    NonText        { bg = colours.black, fg = colours.gray_2 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal         { bg = colours.black, fg = colours.white }, -- Normal text
     NormalFloat    { link = Normal }, -- Normal text in floating windows.
     FloatBorder    { bg = colours.black, fg = colours.border }, -- Border of floating windows.
