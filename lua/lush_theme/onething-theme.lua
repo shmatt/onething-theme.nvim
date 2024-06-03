@@ -170,7 +170,7 @@ local theme = lush(function(injected_functions)
     Comment        { bg = colours.black, fg = colours.gray }, -- Any comment
 
     Constant       { bg = colours.black, fg = colours.white }, -- (*) Any constant
-    -- String         { }, --   A string constant: "this is a string"
+    String         { bg = colours.black, fg = colours.white }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     -- Number         { }, --   A number constant: 234, 0xff
     -- Boolean        { }, --   A boolean constant: TRUE, false
@@ -281,7 +281,7 @@ local theme = lush(function(injected_functions)
     -- sym"@constant.macro"    { }, -- Define
     -- sym"@define"            { }, -- Define
     -- sym"@macro"             { }, -- Macro
-    -- sym"@string"            { }, -- String
+    sym"@string"            { bg = colours.black, fg = colours.white }, -- String
     -- sym"@string.escape"     { }, -- SpecialChar
     -- sym"@string.special"    { }, -- SpecialChar
     -- sym"@character"         { }, -- Character
