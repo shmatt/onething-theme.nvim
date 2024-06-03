@@ -289,13 +289,13 @@ local theme = lush(function(injected_functions)
     -- sym"@number"            { }, -- Number
     -- sym"@boolean"           { }, -- Boolean
     -- sym"@float"             { }, -- Float
-    -- sym"@function"          { }, -- Function
+    sym"@function"          { bg = colours.black, fg = colours.white, gui = "" }, -- Function
     -- sym"@function.builtin"  { }, -- Special
     -- sym"@function.macro"    { }, -- Macro
     -- sym"@parameter"         { }, -- Identifier
-    -- sym"@method"            { }, -- Function
+    sym"@method"            { bg = colours.black, fg = colours.white, gui = ""  }, -- Function
     -- sym"@field"             { }, -- Identifier
-    -- sym"@property"          { }, -- Identifier
+    sym"@property"          { bg = colours.black, fg = colours.white, gui = ""  }, -- Identifier
     -- sym"@constructor"       { }, -- Special
     -- sym"@conditional"       { }, -- Conditional
     -- sym"@repeat"            { }, -- Repeat
