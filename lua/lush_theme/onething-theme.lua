@@ -82,7 +82,7 @@ local theme = lush(function(injected_functions)
     ErrorMsg       { bg = colours.error, fg = colours.white }, -- Error messages on the command line
     VertSplit      { bg = colours.black, fg = colours.border }, -- Column separating vertically split windows
     Substitute     { bg = colours.gray_3, fg = colours.white }, -- |:substitute| replacement text highlighting
-    LineNr         { bg = colours.black, fg = colours.gray_3 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNr         { bg = colours.black, fg = colours.gray }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     -- LineNrAbove    { }, -- Line number for when the 'relativenumber' option is set, above the cursor line
     -- LineNrBelow    { }, -- Line number for when the 'relativenumber' option is set, below the cursor line
     CursorLineNr   { fg = colours.gray_15 }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.

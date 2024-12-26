@@ -14,6 +14,7 @@ colours.border = hsl("#444444")
 colours.gray_1 = hsl("#1e1e1e") 
 colours.gray_2 = hsl("#2d2d2d")
 colours.gray_3 = hsl("#3c3c3c")
+colours.gray_4 = hsl("#4b4b4b")
 
 colours.gray_10 = hsl("#aeaeae")
 colours.gray_15 = hsl("#ececec")
