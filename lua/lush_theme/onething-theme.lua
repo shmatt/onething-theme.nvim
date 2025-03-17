@@ -158,6 +158,12 @@ local theme = lush(function(injected_functions)
     NotifyINFOTitle { bg = colours.black, fg = colours.gray_15, gui = "bold" },
     NotifyDEBUGTitle { bg = colours.black, fg = colours.gray_10, gui = "bold" },
 
+		-- DAP signs
+		DapBreakpoint { bg = colours.black, fg = colours.warning },
+		DapBreakpointCondition { bg = colours.black, fg = colours.warning },
+		DapStopped { bg = colours.black, fg = colours.error },
+		DapLogPoint { bg = colours.black, fg = colours.accent },
+		DapBreakpointRejected { bg = colours.black, fg = colours.gray_15 },
     
     -- Common vim syntax groups used for all kinds of code and markup.
     -- Commented-out groups should chain up to their preferred (*) group
